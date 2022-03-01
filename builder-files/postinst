@@ -1,0 +1,34 @@
+#!/bin/bash
+
+function setquartzdata {
+	echo Configurando Ripe Atlas
+	read -p "Ingresar la URL: " ripeurl
+	read -p "Ingresa el ISP: " ripeisp
+	read -p "Ingresa la API KEY: " ripekey
+
+	[[ -d ~/.config/ ]] || mkdir ~/.config/ 
+	[[ -f ~/.config/quartz.conf ]] && cat << EOF > ~/.config/quartz.conf
+[quartz]
+api_key = $ripekey
+url = $ripeurl
+isp = $ripeisp
+EOF
+}
+
+echo "$(tput setaf 2) Configurar los parametros de Quartz? [S/N] $(tput sgr 0)"
+valid=0
+while [ $valid == 0 ]; do
+read ans; case $ans in
+    [sS][iI]|[sS] )     setquartzdata
+  			valid=1;;
+    [nN][oO]|[nN] )     echo Continuando...
+                        valid=1;;
+    * )                 echo Escribir Si o No por favor;;
+    esac
+done
+
+echo "$(tput setaf 2) Instalando dependencias de Python$(tput sgr 0)"
+pip3 install logging42 requests configparser argparse
+wait $!
+if [ $? != 0 ]; then echo "$(tput setaf 1) Hubo un error instalando dependencias de python necesarias (logging, requests, configparser, argparse)$(tput sgr 0)" && read -n 1 -r -s -p $'Presione una tecla para continuar\n'; fi
+echo "$(tput setaf 2) Instalacion finalizada$(tput sgr 0)"
