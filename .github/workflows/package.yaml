@@ -1,0 +1,17 @@
+meta:
+  description: quartz
+  maintainer: https://github.com/sysarmy/quartz/ <root@sysarmy.com>
+files:
+  "/usr/bin/":
+    file: quartz.py
+    mode: "0755"
+    user: "root"
+  "/etc/cron.d/":
+    file: builder-files/cron-quartz
+    mode: "0644"
+    user: "root"
+    keep: true
+scripts:
+  "post-install": builder-files/postinst
+  "post-remove": builder-files/postrm
+user: root
