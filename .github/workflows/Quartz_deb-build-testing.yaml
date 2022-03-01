@@ -1,7 +1,8 @@
 name: Quartz_deb-build-testing
 on:
-  schedule:
-    - cron: '36 8 * * *'
+  push
+#  schedule:
+#    - cron: '36 8 * * *'
 jobs:
   build-package:
     runs-on: ubuntu-latest
