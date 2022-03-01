@@ -13,4 +13,4 @@ jobs:
           version: 0.3
           arch: x86_64
           format: deb
-          package: quartz-spec.yaml
+          package: /builder-files/quartz-spec.yaml
