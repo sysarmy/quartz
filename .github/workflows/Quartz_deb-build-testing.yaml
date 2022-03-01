@@ -1,0 +1,7 @@
+uses: kentik/pkg@v1.0.0-rc8
+with:
+  name: Quartz
+  version: 0.3
+  arch: all
+  format: deb
+  package: quartz-spec.yaml  
