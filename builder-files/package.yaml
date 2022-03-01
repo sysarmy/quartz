@@ -13,5 +13,5 @@ files:
     keep: true
 scripts:
   "post-install": builder-files/postinst
-  "post-removal": builder-files/postrm
+  "post-remove": builder-files/postrm
 user: root
