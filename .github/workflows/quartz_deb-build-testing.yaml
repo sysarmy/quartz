@@ -3,17 +3,12 @@ on: [push]
 #  schedule:
 #    - cron: '36 8 * * *'
 jobs:
-  checkout:
+  build-package:
     runs-on: ubuntu-latest
     steps:
       - run: echo "The branch is ${{ github.ref }} and the repo is ${{ github.repository }}."
       - name: Check out repository code
         uses: actions/checkout@v2
-
-jobs:
-  build-package:
-    runs-on: ubuntu-latest
-    steps:
       - uses: kentik/pkg@v1.0.0-rc8
         with:
           name: quartz
