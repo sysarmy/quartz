@@ -2,11 +2,11 @@ meta:
   description: quartz
   maintainer: https://github.com/sysarmy/quartz/ <root@sysarmy.com>
 files:
-  "/usr/bin/":
+  "/usr/bin/quartz.py":
     file: quartz.py
     mode: "0755"
     user: "root"
-  "/etc/cron.d/":
+  "/etc/cron.d/cron_quartz":
     file: builder-files/cron-quartz
     mode: "0644"
     user: "root"
