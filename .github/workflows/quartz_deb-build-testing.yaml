@@ -3,7 +3,7 @@ on: [push]
 #  schedule:
 #    - cron: '36 8 * * *'
 jobs:
-  build-package:
+  build-and-upload-package:
     runs-on: ubuntu-latest
     steps:
       - run: echo "The branch is ${{ github.ref }} and the repo is ${{ github.repository }}."
@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v2
       - uses: kentik/pkg@v1.0.0-rc8
         with:
-          name: quartz_0.3
+          name: quartz
           version: 0.3
           arch: x86_64
           format: deb
@@ -19,4 +19,4 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: quartz_deb
-          path: ./quartz_0.3.deb
+          path: ./quartz_0.3-1_amd64.deb
