@@ -11,8 +11,12 @@ jobs:
         uses: actions/checkout@v2
       - uses: kentik/pkg@v1.0.0-rc8
         with:
-          name: quartz
+          name: quartz_0.3
           version: 0.3
           arch: x86_64
           format: deb
           package: package.yaml
+      - uses: actions/upload-artifact@v3
+        with:
+          name: quartz_deb
+          path: ./quartz_0.3.deb
